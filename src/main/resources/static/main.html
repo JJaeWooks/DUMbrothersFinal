@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DumbLink 당신의 새로운 링크저장방식</title>
+    <style>
+      body {
+        overflow: hidden;
+      }
+
+      header {
+        position: absolute;
+        width: 1392px;
+        height: 48px;
+        left: 12px;
+        top: 12px;
+      }
+
+      nav {
+        position: absolute;
+        width: 250px;
+        height: 590px;
+        left: 11px;
+        top: 184px;
+        overflow: scroll;
+      }
+
+      section {
+        position: absolute;
+        width: 951px;
+        height: 1100px;
+        left: 257px;
+        top: 148px;
+      }
+
+      #top_logo {
+        position: absolute;
+        width: 200px;
+        height: 48px;
+        left: 12px;
+        top: 12px;
+      }
+      ::-webkit-scrollbar {
+        width: 8px; /* 스크롤바 너비 설정 */
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: transparent; /* 트랙 배경 투명화 */
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: transparent; /* 스크롤바 썸네일 배경 투명화 */
+      }
+
+      #btn_blue {
+        position: absolute;
+        width: 96px;
+        height: 48px;
+        left: 1092px;
+        top: 12px;
+        border: 0px;
+        background-color: transparent;
+      }
+
+      #user_image {
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        left: 1226px;
+        top: 12px;
+      }
+
+      #link_input {
+        box-sizing: border-box;
+        position: absolute;
+        width: 816px;
+        height: 48px;
+        left: 252px;
+        top: 12px;
+        border: 1px solid lightgray;
+        border-radius: 8px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        background-color: #f5f5f5;
+      }
+
+      #모든링크1 {
+        /* 모든 링크 */
+        position: absolute;
+        width: 300px;
+        height: 20px;
+        left: 270px;
+        top: 125px;
+
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 20px;
+        /* identical to box height */
+        color: #1d1d1d;
+      }
+
+      #ic_layout1 {
+        /* ic_layout1 */
+        position: absolute;
+        width: 52px;
+        height: 24px;
+        left: 1170px;
+        top: 120px;
+      }
+
+      #ic_layout2 {
+        /* ic_layout2 */
+        position: absolute;
+        width: 52px;
+        height: 24px;
+        left: 1170px;
+        top: 120px;
+      }
+
+      #ic_layout1:hover {
+        /* ic_layout1 */
+        position: absolute;
+        width: 52px;
+        height: 24px;
+        left: 1170px;
+        top: 120px;
+        background-color: #f5f5f5;
+      }
+
+      #ic_layout1:active {
+        /* ic_layout1 */
+        position: absolute;
+        width: 52px;
+        height: 24px;
+        left: 1170px;
+        top: 120px;
+        background-color: #f0f6ff;
+      }
+      #내폴더 {
+        /* 내 폴더 */
+        position: absolute;
+        width: 60px;
+        height: 20px;
+        left: 22px;
+        top: 98px;
+
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 20px;
+        /* identical to box height */
+
+        color: #1d1d1d;
+      }
+
+      #cre_folder {
+        /* cre_folder */
+        position: absolute;
+        width: 216px;
+        height: 40px;
+        left: 21px;
+        top: 137px;
+        border: 0px;
+        background: #ffffff;
+        border-radius: 8px;
+        border-color: whitesmoke;
+        /* 구별을 쉽게하기 위해 whitesmoke color 임시사용 */
+      }
+      #cre_folder:hover {
+        /* cre_folder */
+        position: absolute;
+        width: 216px;
+        height: 40px;
+        left: 21px;
+        top: 137px;
+        border: 0px;
+        background: #f5f5f5;
+        border-radius: 8px;
+        border-color: whitesmoke;
+        /* 구별을 쉽게하기 위해 whitesmoke color 임시사용 */
+      }
+
+      #cre_folder:active {
+        /* cre_folder */
+        position: absolute;
+        width: 216px;
+        height: 40px;
+        left: 21px;
+        top: 137px;
+        border: 0px;
+        background: #f0f6ff;
+        border-radius: 8px;
+        border-color: whitesmoke;
+        /* 구별을 쉽게하기 위해 whitesmoke color 임시사용 */
+      }
+
+      #폴더생성 {
+        position: absolute;
+        width: 62px;
+        height: 16px;
+        left: 10px;
+        top: 10px;
+
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: #1d1d1d;
+      }
+
+      #ic_plus {
+        position: absolute;
+        left: 180px;
+        top: 7px;
+      }
+
+      #선택영역 {
+        /* 선택영역 */
+        position: absolute;
+        width: 216px;
+        height: 40px;
+        left: 12px;
+        top: 174px;
+
+        background: #f0f6ff;
+        border-radius: 8px;
+      }
+
+      #open_folder {
+        position: relative;
+        width: 216px;
+        height: 40px;
+        left: 9px;
+        top: 7px;
+        border: 0px;
+        background: #f0f6ff;
+        border-radius: 8px;
+      }
+
+      .folders {
+        position: relative;
+        width: 216px;
+        height: 40px;
+        left: 9px;
+        top: 9px;
+
+        background: white;
+        border: 0px;
+        margin-top: 2px;
+      }
+
+      .folders:hover {
+        position: relative;
+        width: 216px;
+        height: 40px;
+        left: 9px;
+        top: 9px;
+        background: #f5f5f5;
+        border-radius: 8px;
+        border: 0px;
+        margin-top: 2px;
+      }
+
+      .folders:active {
+        position: relative;
+        width: 216px;
+        height: 40px;
+        left: 9px;
+        top: 9px;
+        border-radius: 8px;
+        background-color: #f0f6ff;
+      }
+
+      .tags {
+        position: relative;
+        width: 216px;
+        height: 40px;
+        left: 9px;
+        top: 9px;
+
+        background: white;
+        border: 0px;
+        margin-top: 2px;
+      }
+
+      .tags:hover {
+        position: relative;
+        width: 216px;
+        height: 40px;
+        left: 9px;
+        top: 9px;
+        background: #f5f5f5;
+        border-radius: 8px;
+        border: 0px;
+        margin-top: 2px;
+      }
+
+      .tags:active {
+        position: relative;
+        width: 216px;
+        height: 40px;
+        left: 9px;
+        top: 9px;
+        border-radius: 8px;
+        background-color: #f0f6ff;
+      }
+      #모든링크 {
+        /* 모든 링크 */
+
+        position: absolute;
+        width: 61px;
+        height: 16px;
+        left: 49px;
+        top: 11px;
+
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: #4289f3;
+      }
+
+      #ic_folders {
+        /* ic_folders */
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        left: 15px;
+        top: 7px;
+      }
+
+      #items {
+        display: inline-block;
+        position: relative;
+        width: 216px;
+        height: 162px;
+        left: 0px;
+        top: 7px;
+        margin: 15px 12px;
+        border-radius: 10px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+      #items:hover {
+        display: inline-block;
+        position: relative;
+        width: 216px;
+        height: 162px;
+        left: 0px;
+        top: 7px;
+        margin: 15px 12px;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+
+      #items_image {
+        position: absolute;
+        width: 216px;
+        height: 162px;
+        left: 0px;
+        top: 7px;
+      }
+
+      #items_section {
+        position: absolute;
+        z-index: 1;
+        width: 1100px;
+        height: 600px;
+        left: 278px;
+        top: 174px;
+        overflow: scroll;
+        overflow-x: hidden;
+        font-size: 0px;
+      }
+
+      /* 사진 높이 108px */
+
+      #items_content {
+        position: relative;
+        top: 100%;
+        width: 216px;
+        height: 54px;
+        left: 0px;
+        top: 108px;
+        background-color: #f5f5f5;
+        border-radius: 0px 0px 10px 10px;
+      }
+
+      svg {
+        transition: background-color 0.2s ease-in-out;
+        border-radius: 50%;
+      }
+
+      svg:hover {
+        background-color: silver;
+      }
+      svg:focus {
+        outline: 2px solid transparent;
+      }
+
+      .dropdown-menu {
+        display: block;
+        position: absolute;
+        background-color: white;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        left: 217px;
+        top: 109px;
+        width: 120px;
+        height: 73px;
+        z-index: 100;
+        /* 필요에 따라 z-index 값 조정 */
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        border-radius: 5px;
+        color: #6d6d6d;
+        border-color: #6d6d6d;
+        border-width: 10px;
+      }
+
+      .dropdown-menu li {
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .dropdown-menu li:hover {
+        background-color: lightgray;
+        border-radius: 5px;
+      }
+
+      .dropdown-nav {
+        display: none;
+        position: absolute;
+        background-color: white;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        left: 92px;
+        top: 28px;
+        width: 120px;
+        height: 73px;
+        z-index: 999;
+        /* 필요에 따라 z-index 값 조정 */
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        border-radius: 5px;
+        color: #6d6d6d;
+        border-color: #6d6d6d;
+        border-width: 10px;
+      }
+
+      .dropdown-nav li {
+        padding: 10px;
+
+        cursor: pointer;
+      }
+
+      .dropdown-nav li:hover {
+        background-color: lightgray;
+        border-radius: 5px;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        text-align: center;
+        font-size: 20px;
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      /*로딩중 애니메이션*/
+      @import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+      #loading {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+        -webkit-animation: spin 1s ease-in-out infinite;
+        position: absolute;
+        display: none;
+        top: 22px;
+        left: 1130.6px;
+      }
+
+      @keyframes spin {
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes spin {
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+    </style>
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <img
+        id="top_logo"
+        src="header_svg/logo.svg"
+        alt="dumblink로고"
+        onclick="location.reload()"
+      />
+      <img id="user_image" src="header_svg/user.svg" alt="유저이미지" />
+      <div id="모든링크1">모든링크</div>
+      <img
+        id="ic_layout1"
+        src="header_svg/ic_layout1.svg"
+        alt="내용_비활성화"
+        onclick="toggleImage(ic_layout1);"
+      />
+      <button
+        id="btn_blue"
+        type="submit"
+        onclick="submitForm()"
+        onmouseover="changeImage_hover(true)"
+        onmouseout="changeImage_hover(false)"
+        onmousedown="changeImage_press(true)"
+        onmouseup="changeImage_press(false)"
+      >
+        <img id="btn_img" src="header_svg/btn_blue.svg" alt="추가버튼" />
+      </button>
+      <input
+        id="link_input"
+        type="text"
+        name="url"
+        placeholder="   링크를 입력해 주세요."
+        onkeydown="checkEnter(event)"
+        autocomplete="off"
+      />
+      <!-- <!— 링크 추가시 팝업창 —> -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="modal-message"></p>
+        </div>
+      </div>
+      <div id="loading"></div>
+    </header>
+
+    <div id="내폴더">내 폴더</div>
+    <button id="cre_folder" onclick="createNewFolder();">
+      <img id="ic_plus" src="nav/cre_folder_svg/ic_plus.svg" alt="플러스" />
+      <div id="폴더생성">폴더 생성</div>
+    </button>
+    <nav>
+      <!-- button 태그 안에 img, div로 구현 -->
+      <button
+        id="open_folder"
+        onclick="removeContent(); asyncRequest(); changeButton();
+    globalFolderId = null;
+    globalTagName = null;"
+      >
+        <!-- <img id="선택영역" src="nav/open_folder/선택영역.svg" alt="선택영역"> -->
+        <img
+          id="ic_folders"
+          src="nav/open_folder_svg/ic_folders.svg"
+          alt="ic_folders"
+        />
+        <div id="모든링크">모든 링크</div>
+      </button>
+    </nav>
+
+    <section id="items_section">
+      <img id="section_hr" src="section/section_hr_svg.svg" alt="섹션 hr" />
+    </section>
+  </body>
+  <script>
+    var inputField = document.getElementById("link_input");
+    var placeholderText = inputField.getAttribute("placeholder");
+
+    inputField.addEventListener("click", function () {
+      this.placeholder = "";
+    });
+
+    inputField.addEventListener("blur", function () {
+      if (!this.value) {
+        this.placeholder = placeholderText;
+      }
+    });
+  </script>
+</html>

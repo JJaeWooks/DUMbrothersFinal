@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시안1</title>
+    <style>
+        body {
+            margin: 0 auto;
+            width: 300px;
+        }
+
+        #덤링크로고 {
+            position: absolute;
+            width: 200px;
+            height: 48px;
+            left: 36px;
+            top: 12px;
+        }
+
+        #시안1_이미지 {
+            position: absolute;
+            width: 640px;
+            height: 670px;
+            left: 764px;
+            top: 157px;
+            border-color: red;
+        }
+
+        #로그인 {
+            position: absolute;
+            width: 96px;
+            height: 48px;
+            left: 1308px;
+            top: 12px;
+        }
+
+        #링크관리 {
+            position: absolute;
+            width: 684px;
+            height: 80px;
+            left: 36px;
+            top: 382px;
+
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 52px;
+            line-height: 80px;
+
+            color: #1D1D1D;
+        }
+
+        #링크관리2 {
+            position: absolute;
+            width: 684px;
+            height: 52px;
+            left: 36px;
+            top: 502px;
+
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 52px;
+
+            color: #1D1D1D;
+
+        }
+
+        #시작하기 {
+            position: absolute;
+            width: 181px;
+            height: 48px;
+            left: 36px;
+            top: 594px;
+
+        }
+        /*#loginPopup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding:20px;
+            background-color: white;
+            width: 300px;
+            height: 200px;
+            z-index:10;
+            border-radius:20px;
+          }
+*/
+#loginPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding:20px;
+    background-color: white;
+    
+    z-index:10; /* 추가 */
+    
+    border-radius:20px; /* 추가 */
+  
+     display:flex;
+     flex-direction: column;
+     align-items:center;
+     justify-content:center;
+  
+     width:400px; /* 팝업의 너비를 수정 */
+     height:300px; /* 팝업의 높이를 수정 */
+  
+  }
+  
+  #popupContent {
+     display:flex;
+     flex-direction: column;
+     align-items:center;
+  
+  }
+  
+  #logoImage {
+     max-width:100%;
+     max-height:auto; /* 이미지 비율 유지 */
+  }
+  
+  
+  
+          
+          
+          #overlay {
+             position: fixed;
+             top:0;
+             left:0;
+             width:100%;
+             height:100%;
+             background-color:#00000080; /* 검은색 반투명 */
+          }
+
+          #logoImage {
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+         }
+          
+         #closeButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+        
+          }
+          hr {
+            border-color: rgb(236, 229, 229);
+          }
+          
+    </style>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+</head>
+
+<body>
+
+        <img id="덤링크로고" src="header_svg/logo.svg" alt="dumblink로고" onclick="handleLogoClick()">
+        <img id="시안1_이미지" src="시안1/시안1_이미지.svg">
+    
+        <img id="로그인" src="시안1/btn_black.svg" alt="" onclick="openLoginPopup()">
+        
+        <div id="링크관리">효율적인 링크 관리</div>
+        <div id="링크관리2">당신을 위한 효율적인 링크 관리</div>
+    
+        <img id = "시작하기" src="시안1/btn_blue.svg" alt="" onclick= "openLoginPopup()">
+
+        <!-- 로그인 팝업 -->
+        <!-- 로그인 팝업 -->
+        <div id='loginPopup' style='display: none;'>
+            <button id="closeButton" onclick='closeLoginPopup()'>X</button>
+            <br>
+            <div id="popupContent">
+                <img src="header_svg/logo.svg" id="logoImage">
+            </div>
+            <br>
+            <br>
+            <div style='text-align:center;'>
+                로그인 후 덤링크를 이용해 보세요!
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div style="display: flex; justify-content: center;">
+                <div id="googleSignInButton" style="width: 200px; height: 50px;">
+                </div>
+
+            </div>
+            <a href="/oauth2/authorization/google">google login</a>
+
+
+        </div>
+        <!-- 배경 오버레이 -->
+     <div id='overlay' style='display: none;'></div>
+
+
+    <script>
+        // 팝업 외부 클릭 시 팝업 닫기
+        window.addEventListener('mouseup', function(event) {
+            var loginPopup = document.getElementById('loginPopup');
+            if (event.target !== loginPopup && !loginPopup.contains(event.target)) {
+              closeLoginPopup();
+            }
+          });
+
+
+        function handleLogoClick() {
+           // 로고 이미지가 클릭되었을 때 실행될 동작 구현
+           alert('덤링크');
+        }
+
+        // 로그인 팝업 열기 함수
+        function openLoginPopup() {
+           document.getElementById('loginPopup').style.display = 'block';
+           document.getElementById('overlay').style.display = 'block';
+        }
+
+        // 로그인 팝업 닫기 함수
+        function closeLoginPopup() {
+           document.getElementById('loginPopup').style.display = 'none';
+           document.getElementById('overlay').style.display = 'none';
+        }
+
+
+        //구글 로그인 기능을 초기화하고 버튼을 렌더링
+        function handleCredentialResponse(response) {
+            // 처리할 응답 데이터 처리
+            console.log(response.credential);
+        }
+
+        window.onload = function() {
+            if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
+                google.accounts.id.initialize({
+                    client_id: '202457061184-jt02bscn5qb7pkn5vcqfjm3k5h5b8u1h.apps.googleusercontent.com',
+                    callback: handleCredentialResponse,
+                });
+
+                google.accounts.id.renderButton(
+                    document.getElementById('googleSignInButton'),
+                    { theme: 'outline', size: 'large' }
+                );
+            }
+        }
+        </script>
+
+</body>
+
+
+          
+          
+   
+</html>

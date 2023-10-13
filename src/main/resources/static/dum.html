@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DumbLink 당신의 새로운 링크저장방식</title>
+  <style>
+    body {
+      overflow: hidden;
+    }
+
+    header {
+      position: absolute;
+      width: 1392px;
+      height: 48px;
+      left: 12px;
+      top: 12px;
+    }
+
+    nav {
+      position: absolute;
+      width: 235px;
+      height: 1103px;
+      left: 11px;
+      top: 84px;
+    }
+
+    section {
+      position: absolute;
+      width: 951px;
+      height: 1001px;
+      left: 257px;
+      top: 148px;
+    }
+
+    #top_logo {
+      position: absolute;
+      width: 200px;
+      height: 48px;
+      left: 12px;
+      top: 12px;
+    }
+
+    #btn_blue {
+      position: absolute;
+      width: 96px;
+      height: 48px;
+      left: 1092px;
+      top: 12px;
+    }
+
+    #user_image {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      left: 1356px;
+      top: 12px;
+    }
+
+    #link_input {
+      box-sizing: border-box;
+      position: absolute;
+      width: 816px;
+      height: 48px;
+      left: 252px;
+      top: 12px;
+      border: 1px solid lightgray;
+      border-radius: 8px;
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    #모든링크1 {
+      /* 모든 링크 */
+      position: absolute;
+      width: 70px;
+      height: 20px;
+      left: 252px;
+      top: 100px;
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 20px;
+      /* identical to box height */
+      color: #1D1D1D;
+    }
+
+    #ic_layout1 {
+      /* ic_layout1 */
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      left: 1136px;
+      top: 98px;
+    }
+
+    #ic_layout2 {
+      /* ic_layout2 */
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      left: 1164px;
+      top: 98px;
+    }
+
+    #내폴더 {
+      /* 내 폴더 */
+      position: absolute;
+      width: 60px;
+      height: 20px;
+      left: 12px;
+      top: 18px;
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 20px;
+      /* identical to box height */
+
+      color: #1D1D1D;
+    }
+
+    #cre_folder {
+      /* cre_folder */
+      position: absolute;
+      width: 216px;
+      height: 40px;
+      left: 9px;
+      top: 54px;
+
+      background: #FFFFFF;
+      border-radius: 8px;
+      border-color: whitesmoke;
+      /* 구별을 쉽게하기 위해 whitesmoke color 임시사용 */
+    }
+
+    #폴더생성 {
+      position: absolute;
+      width: 62px;
+      height: 16px;
+      left: 10px;
+      top: 10px;
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+
+      color: #1D1D1D;
+    }
+
+    #ic_plus {
+      position: absolute;
+      left: 180px;
+      top: 7px;
+    }
+
+    #선택영역 {
+      /* 선택영역 */
+      position: absolute;
+      width: 216px;
+      height: 40px;
+      left: 12px;
+      top: 174px;
+
+      background: #F0F6FF;
+      border-radius: 8px;
+    }
+
+    #open_folder {
+      /* open_folder */
+      position: absolute;
+      width: 216px;
+      height: 40px;
+      left: 9px;
+      top: 111px;
+
+      background: #F0F6FF;
+      border-radius: 8px;
+      border-color: whitesmoke;
+
+    }
+
+    #모든링크 {
+      /* 모든 링크 */
+
+      position: absolute;
+      width: 61px;
+      height: 16px;
+      left: 49px;
+      top: 11px;
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 16px;
+
+      color: #4289F3;
+    }
+
+    #ic_folders {
+      /* ic_folders */
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      left: 15px;
+      top: 5px;
+    }
+
+    #items {
+      display: inline-block;
+      position: relative;
+      width: 216px;
+      height: 162px;
+      left: 0px;
+      top: 7px;
+    }
+
+    #items_image {
+      position: absolute;
+      width: 216px;
+      height: 162px;
+      left: 0px;
+      top: 7px;
+    }
+
+    #items_section {
+      position: absolute;
+      width: 936px;
+      height: 753px;
+      left: 278px;
+      top: 174px;
+      overflow: scroll;
+      overflow-x : hidden;
+    }
+    /* 사진 높이 108px */
+
+    #items_content {
+      position: relative;
+      top: 100%;
+      width: 216px;
+      height: 54px;
+      left: 0px;
+      top: 108px;
+      background-color : lightgrey;
+    }
+
+    svg {
+      transition: background-color 0.2s ease-in-out;
+      border-radius: 50%;
+    }
+
+    svg:hover {
+      background-color : silver;
+    }
+  </style>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'dummy.json', true);
+    xhr.responseType = 'json';
+    var jsonData;
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        // file loaded successfully
+        jsonData = xhr.response;
+        console.log(jsonData); // display the loaded JSON data
+        console.log(jsonData.length);
+        var parentElement = document.getElementById('items_section');
+
+        for (var i = 0; i < jsonData.length; i++) {
+          // create a new div element
+          var divElement = document.createElement('div');
+          divElement.setAttribute('id', 'items');
+          divElement.style.backgroundImage = "url('sample_img.jpeg')";
+          divElement.style.backgroundRepeat = 'no-repeat'
+          // create a new inner div element with id="items_content"
+          var innerDivElement = document.createElement('div');
+          innerDivElement.setAttribute('id', 'items_content');
+
+          // create a span element to wrap the title node
+          var titleSpan = document.createElement('span');
+          titleSpan.style.fontWeight = 'bold'; // make the title bold
+          titleSpan.style.fontSize = '20px'; // set the font size of the title
+          titleSpan.textContent = jsonData[i].title;
+
+          // create a span element to wrap the url node
+          var urlSpan = document.createElement('span');
+          urlSpan.style.fontSize = '10px'; // set the font size of the url
+          urlSpan.textContent = jsonData[i].url.substring(0, 15);
+
+          // create an SVG element
+          var svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+          svgElement.setAttribute('viewBox', '0 0 24 24');
+          svgElement.setAttribute('width', '24');
+          svgElement.setAttribute('height', '24');
+
+          // create circle elements and set their attributes
+          var circle1 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          circle1.setAttribute('cx', '12');
+          circle1.setAttribute('cy', '6');
+          circle1.setAttribute('r', '2');
+          circle1.setAttribute('fill', '#000');
+
+          var circle2 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          circle2.setAttribute('cx', '12');
+          circle2.setAttribute('cy', '12');
+          circle2.setAttribute('r', '2');
+          circle2.setAttribute('fill', '#000');
+
+          var circle3 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          circle3.setAttribute('cx', '12');
+          circle3.setAttribute('cy', '18');
+          circle3.setAttribute('r', '2');
+          circle3.setAttribute('fill', '#000');
+
+          // append the circles to the SVG element
+          svgElement.appendChild(circle1);
+          svgElement.appendChild(circle2);
+          svgElement.appendChild(circle3);
+          svgElement.style.float = 'right';
+
+
+          // append the SVG element to the items_content element
+
+
+          // append the text nodes to their corresponding span elements
+          innerDivElement.appendChild(titleSpan);
+          innerDivElement.appendChild(svgElement);
+          innerDivElement.appendChild(document.createElement('br'));
+          innerDivElement.appendChild(urlSpan);
+
+          // append the inner div element to the outer div element
+          divElement.appendChild(innerDivElement);
+
+          // append the new div element to the parent element
+          parentElement.appendChild(divElement);
+        }
+
+      }
+      else {
+        console.log('Error loading file');
+      }
+    };
+    xhr.send();
+  </script>
+</head>
+
+<body>
+<header>
+  <img id="top_logo" src="header_svg/logo.svg" alt="dumblink로고">
+  <img id="btn_blue" src="header_svg/btn_blue.svg" alt="추가버튼">
+  <img id="user_image" src="header_svg/user.svg" alt="유저이미지">
+  <form class="container" action="/dum/input" method="post">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <input id="link_input" type="text" name="link">
+  </form>
+
+
+
+  <div id="모든링크1">모든링크</div>
+  <img id="ic_layout1" src="header_svg/ic_layout1.svg" alt="내용_비활성화">
+  <img id="ic_layout2" src="header_svg/ic_layout2.svg" alt="큰아이콘_활성화">
+</header>
+
+<nav>
+  <div id="내폴더">내 폴더</div>
+  <button id="cre_folder">
+    <img id="ic_plus" src="nav/cre_folder_svg/ic_plus.svg" alt="플러스">
+    <div id="폴더생성">폴더 생성</div>
+  </button>
+  <!-- button 태그 안에 img, div로 구현 -->
+  <button id="open_folder">
+    <!-- <img id="선택영역" src="nav/open_folder/선택영역.svg" alt="선택영역"> -->
+    <img id="ic_folders" src="nav/open_folder_svg/ic_folders.svg" alt="ic_folders">
+    <div id="모든링크">모든 링크</div>
+  </button>
+</nav>
+
+<section id="items_section">
+  <img id="section_hr" src="section/section_hr_svg.svg" alt="섹션 hr">
+  </setion>
+
+</body>
+
+</html>
